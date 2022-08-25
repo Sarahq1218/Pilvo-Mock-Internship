@@ -4,6 +4,8 @@
   "private": true,
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
+    "@heroicons/react": "^2.0.4",
+    "@heroicons/vue": "^2.0.4",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
@@ -42,8 +44,11 @@
       "last 1 safari version"
     ],
     "typeRoots": [
-  "../node_modules/@types",
-  "../@types"
-]
+      "../node_modules/@types",
+      "../@types"
+    ]
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.1.8"
   }
 }
