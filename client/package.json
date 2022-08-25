@@ -8,6 +8,8 @@
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.27.2",
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
     "firebase": "^9.9.3",
     "react": "^18.2.0",
     "react-bootstrap": "^2.5.0",
@@ -42,8 +44,8 @@
       "last 1 safari version"
     ],
     "typeRoots": [
-  "../node_modules/@types",
-  "../@types"
-]
+      "../node_modules/@types",
+      "../@types"
+    ]
   }
 }
