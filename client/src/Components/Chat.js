@@ -1,18 +1,11 @@
 import React from 'react'
-import { ChatEngine } from 'react-chat-engine';
+import {  ChatEngine } from 'react-chat-engine';
 import { UserAuth } from '../context/AuthContext';
-import { useNavigate } from 'react-router-dom'
-import { useRef, useState, useEffect } from 'react'
-
-
-
 
 
 const Chat = () => {
     const { user, logOut } = UserAuth();
-    const navigate = useNavigate();
-    const [loading, setLoading] = useState(true)
-    var axios = require('axios')
+
     
     const handleLogOut = async () => {
         try {
@@ -24,66 +17,16 @@ const Chat = () => {
 
     }
 
-    const getFile = async (url) => {
-        const response = await fetch(url);
-        const data = await response.blob();
-
-        return new File([data], "userPhoto.jpg", {type: 'image/jpeg'})
-    }
-
-    useEffect(() => {
-        if (!user) {
-            navigate('/')
-
-            return;
-        }
-
-        axios.get('https://api.chatengine.io/users/me/', {
-            headers: {
-                "project-ID":"d778b043-7572-4517-b02b-6e257c6c526d",
-                "user-name": user.email,
-                "user-secret": user.uid,
-                "private-key": "17015365-c132-492f-afc5-9244dae556b0"
-            }
-        })
-            .then(() => {
-                setLoading(false)
-            })
-            .catch(() => {
-                let formdata = new FormData();
-                formdata.append('email', user.email);
-                formdata.append('username', user.displayName)
-                formdata.append('secret', user.uid)
-
-                getFile(user.photoURL) 
-                    .then((avatar) => {
-                        formdata.append('avatar', avatar, avatar.name)
-
-                        axios.post('https://api.chatengine.io/users/',
-                            formdata,
-                            { headers: { "private-key": "17015365-c132-492f-afc5-9244dae556b0" } }
-                        )
-                            .then(() => setLoading(false))
-                            .catch((error) => console.log(error))
-                    })
-        })
-    }, [user, navigate])
-   
-    if(!user || loading ) return 'Loading...'
-
   return (
-    <div className='chats-page'>
-          <nav>
-              Pilveo
-              <p>Welcome, {user?.displayName}</p>
-              {user?.displayName ?<button onClick={handleLogOut}>Log Out</button> :  navigate('/')}
-          </nav>
-          <ChatEngine
-              height="calc(100vh-66px"
-              projectID="d778b043-7572-4517-b02b-6e257c6c526d"
-              userName={user.email}
-              userSecret={user.uid}
-          />
+      <div>
+          <button onClick={handleLogOut}>Log Out</button>
+         <ChatEngine
+			height='100vh'
+			userName='sarahtech1218@gmail.com'
+			userSecret='sJgMo6hygEajlUP24lsP5peIBar2'
+			projectID='d778b043-7572-4517-b02b-6e257c6c526d'
+		/>
+        
     </div>
   )
 }
