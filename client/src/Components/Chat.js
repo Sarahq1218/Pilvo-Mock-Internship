@@ -1,14 +1,11 @@
 import React from 'react'
-import { ChatEngine } from 'react-chat-engine';
+import {  ChatEngine } from 'react-chat-engine';
 import { UserAuth } from '../context/AuthContext';
-import { Link, useNavigate } from 'react-router-dom'
-
-
 
 
 const Chat = () => {
     const { user, logOut } = UserAuth();
-    const navigate = useNavigate();
+
     
     const handleLogOut = async () => {
         try {
@@ -19,24 +16,17 @@ const Chat = () => {
         }
 
     }
-   
 
   return (
-    <div className='chats-page'>
-          <nav>
-              Pilveo
-              <p>Welcome, {user?.displayName}</p>
-              {user?.displayName ?<button onClick={handleLogOut}>Log Out</button> :  navigate('/')}
-          </nav>
-         
-          <ChatEngine
-              height="calc(100vh - 66px)"
-              projectID="d778b043-7572-4517-b02b-6e257c6c526d"
-              userName="."
-              userSecret="."
-          
-          />
-          
+      <div>
+          <button onClick={handleLogOut}>Log Out</button>
+         <ChatEngine
+			height='100vh'
+			userName='sarahtech1218@gmail.com'
+			userSecret='sJgMo6hygEajlUP24lsP5peIBar2'
+			projectID='d778b043-7572-4517-b02b-6e257c6c526d'
+		/>
+        
     </div>
   )
 }
