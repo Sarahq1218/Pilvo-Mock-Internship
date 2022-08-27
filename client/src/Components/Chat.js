@@ -1,6 +1,13 @@
 import React from 'react'
+
 import {  ChatEngine } from 'react-chat-engine';
 import { UserAuth } from '../context/AuthContext';
+
+
+import { ChatEngine } from 'react-chat-engine';
+import { useEffect } from 'react';
+import { UserAuth } from '../context/AuthContext';
+import { Link, useNavigate } from 'react-router-dom'
 
 
 const Chat = () => {
@@ -16,6 +23,11 @@ const Chat = () => {
         }
 
     }
+    useEffect(() => {
+        if (user == null) {
+            navigate('/register')
+        }
+    }, [user])
 
   return (
       <div>
