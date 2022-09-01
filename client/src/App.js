@@ -1,37 +1,38 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes, useRoutes} from 'react-router-dom'
-import Chat from './components/Chat';
-import Home from './components/Home';
-import Login from './components/Login';
-import Protected from './components/Protected';
-import Register from './components/Register';
+import Home from './Components/Home';
+import Login from './Components/Login';
+import Protected from './Components/Protected';
 import { AuthContextProvider } from './context/AuthContext';
-import Navbar from './components/Navbar';
-import TicketForm from './components/TicketForm';
+import Navbar from './Components/Navbar';
+import TicketForm from './Components/TicketForm';
+import Client from './Components/Client';
+import SupportWindow from './Components/SupportWindow';
 
 
 function App() {
   const RouteWrapper = () => {
     let routes = useRoutes([
-      { path: '/', element: <Login /> },
-      { path: '/register', element: <Register /> },
-      { path: '/ticket', element: <Protected><TicketForm /></Protected> },
-      { path: '/home', element: <Protected><Home /></Protected> },
-      { path: '/chat', element: <Protected> <Chat /> </Protected> },
+      { path: '/ticket', element: <AuthContextProvider><Protected><TicketForm /></Protected></AuthContextProvider>  },
+      { path: '/support', element: <AuthContextProvider><Protected> <SupportWindow /> </Protected></AuthContextProvider> },
+      { path: '/', element: <Home /> },
+      { path: '/supportlogin', element: <AuthContextProvider><Login /></AuthContextProvider> }
      
     ])
     return routes;
   }
+  
   return (
     <div>
-      <AuthContextProvider>
-      <Navbar/>
       <Router>
-        <RouteWrapper />
+          <RouteWrapper />
         </Router>
-        </AuthContextProvider>
+    
+      
+      
     </div>
   );
 }
+
 
 export default App;

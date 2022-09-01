@@ -1,25 +1,15 @@
 import React, { useState } from 'react'
 import logo from './plivo_logo.png'
-import { UserAuth } from '../context/AuthContext';
+
 
 
 function Navbar() {
   const [nav, setNav] = useState(false)
+  
   const handleClick = () => {
     setNav(!nav)
   }
 
-  const { user, logOut } = UserAuth();
-  
-  const handleLogOut = async () => {
-      try {
-          await logOut()
-          
-      } catch (error) {
-          console.log(error)
-      }
-
-  }
 
   return (
     <div className='App bg-gradient-to-b from-[#BBC2FA] to-white'>
@@ -47,9 +37,7 @@ function Navbar() {
               </button>
             </a>
 
-            <a href='/'>
-              <button className='flex justify-center hover:text-[#58dedb] focus:text-[#58dedb]' onClick={handleLogOut}>Log Out</button>
-            </a>
+           
           </div>
         </div>
       </div>

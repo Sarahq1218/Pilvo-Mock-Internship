@@ -4,16 +4,13 @@ import { UserAuth } from '../context/AuthContext'
 import { useNavigate } from 'react-router-dom'
 import { useEffect, useState} from 'react'
 import { Link } from 'react-router-dom'
-import { auth } from '../firebase'
+
     
 export default function Login() {
     const { googleSignIn, user } = UserAuth();
     const navigate = useNavigate()
-        useEffect(() => {
-            if (user != null) {
-                navigate('/home')
-            }
-        }, [user])
+    
+ 
         
     const handleGoogleSignIn = async () => {
     try {
@@ -22,7 +19,9 @@ export default function Login() {
         console.log(error);
     }
     };
-
+ if (user != null) {
+            navigate('/support')
+        }
 
     return (
     <section class="flex justify-center h-screen items-center">
