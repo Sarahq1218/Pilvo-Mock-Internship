@@ -8,6 +8,7 @@ import Register from './components/Register';
 import { AuthContextProvider } from './context/AuthContext';
 import Navbar from './components/Navbar';
 import TicketForm from './components/TicketForm';
+import CustomerTickets from './components/CustomerTickets';
 
 
 function App() {
@@ -15,9 +16,10 @@ function App() {
     let routes = useRoutes([
       { path: '/', element: <Login /> },
       { path: '/register', element: <Register /> },
-      { path: '/ticket', element: <Protected><TicketForm /></Protected> },
+      { path: '/new-ticket', element: <Protected><TicketForm /></Protected> },
       { path: '/home', element: <Protected><Home /></Protected> },
       { path: '/chat', element: <Protected> <Chat /> </Protected> },
+      { path: '/ticket-dashboard', element: <Protected> <CustomerTickets /> </Protected> },
      
     ])
     return routes;
@@ -25,7 +27,7 @@ function App() {
   return (
     <div>
       <AuthContextProvider>
-      <Navbar/>
+      {/* <Navbar/> */}
       <Router>
         <RouteWrapper />
         </Router>

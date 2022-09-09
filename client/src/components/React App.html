@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<!-- saved from url=(0026)http://localhost:3000/home -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <link rel="icon" href="http://localhost:3000/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="./React App_files/output.css" rel="stylesheet">
+    <link href="./React App_files/css2" rel="stylesheet">
+    <meta name="theme-color" content="#000000">
+    <meta name="description" content="Web site created using create-react-app">
+    <link rel="apple-touch-icon" href="http://localhost:3000/logo192.png">
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="http://localhost:3000/manifest.json">
+    <!--
+      Notice the use of  in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>React App</title>
+  <script defer="" src="./React App_files/bundle.js"></script><style>/*
+! tailwindcss v3.1.8 | MIT License | https://tailwindcss.com
+*//*
+1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
+2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)
+*/
+
+*,
+::before,
+::after {
+  box-sizing: border-box; /* 1 */
+  border-width: 0; /* 2 */
+  border-style: solid; /* 2 */
+  border-color: #e5e7eb; /* 2 */
+}
+
+::before,
+::after {
+  --tw-content: '';
+}
+
+/*
+1. Use a consistent sensible line-height in all browsers.
+2. Prevent adjustments of font size after orientation changes in iOS.
+3. Use a more readable tab size.
+4. Use the user's configured `sans` font-family by default.
+*/
+
+html {
+  line-height: 1.5; /* 1 */
+  -webkit-text-size-adjust: 100%; /* 2 */ /* 3 */
+  tab-size: 4; /* 3 */
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; /* 4 */
+}
+
+/*
+1. Remove the margin in all browsers.
+2. Inherit line-height from `html` so users can set them as a class directly on the `html` element.
+*/
+
+body {
+  margin: 0; /* 1 */
+  line-height: inherit; /* 2 */
+}
+
+/*
+1. Add the correct height in Firefox.
+2. Correct the inheritance of border color in Firefox. (https://bugzilla.mozilla.org/show_bug.cgi?id=190655)
+3. Ensure horizontal rules are visible by default.
+*/
+
+hr {
+  height: 0; /* 1 */
+  color: inherit; /* 2 */
+  border-top-width: 1px; /* 3 */
+}
+
+/*
+Add the correct text decoration in Chrome, Edge, and Safari.
+*/
+
+abbr:where([title]) {
+  text-decoration: underline dotted;
+}
+
+/*
+Remove the default font size and weight for headings.
+*/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/*
+Reset links to optimize for opt-in styling instead of opt-out.
+*/
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+/*
+Add the correct font weight in Edge and Safari.
+*/
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+/*
+1. Use the user's configured `mono` font family by default.
+2. Correct the odd `em` font sizing in all browsers.
+*/
+
+code,
+kbd,
+samp,
+pre {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; /* 1 */
+  font-size: 1em; /* 2 */
+}
+
+/*
+Add the correct font size in all browsers.
+*/
+
+small {
+  font-size: 80%;
+}
+
+/*
+Prevent `sub` and `sup` elements from affecting the line height in all browsers.
+*/
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+/*
+1. Remove text indentation from table contents in Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=999088, https://bugs.webkit.org/show_bug.cgi?id=201297)
+2. Correct table border color inheritance in all Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=935729, https://bugs.webkit.org/show_bug.cgi?id=195016)
+3. Remove gaps between table borders by default.
+*/
+
+table {
+  text-indent: 0; /* 1 */
+  border-color: inherit; /* 2 */
+  border-collapse: collapse; /* 3 */
+}
+
+/*
+1. Change the font styles in all browsers.
+2. Remove the margin in Firefox and Safari.
+3. Remove default padding in all browsers.
+*/
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit; /* 1 */
+  font-size: 100%; /* 1 */
+  font-weight: inherit; /* 1 */
+  line-height: inherit; /* 1 */
+  color: inherit; /* 1 */
+  margin: 0; /* 2 */
+  padding: 0; /* 3 */
+}
+
+/*
+Remove the inheritance of text transform in Edge and Firefox.
+*/
+
+button,
+select {
+  text-transform: none;
+}
+
+/*
+1. Correct the inability to style clickable types in iOS and Safari.
+2. Remove default button styles.
+*/
+
+button,
+[type='button'],
+[type='reset'],
+[type='submit'] {
+  -webkit-appearance: button; /* 1 */
+  background-color: transparent; /* 2 */
+  background-image: none; /* 2 */
+}
+
+/*
+Use the modern Firefox focus style for all focusable elements.
+*/
+
+:-moz-focusring {
+  outline: auto;
+}
+
+/*
+Remove the additional `:invalid` styles in Firefox. (https://github.com/mozilla/gecko-dev/blob/2f9eacd9d3d995c937b4251a5557d95d494c9be1/layout/style/res/forms.css#L728-L737)
+*/
+
+:-moz-ui-invalid {
+  box-shadow: none;
+}
+
+/*
+Add the correct vertical alignment in Chrome and Firefox.
+*/
+
+progress {
+  vertical-align: baseline;
+}
+
+/*
+Correct the cursor style of increment and decrement buttons in Safari.
+*/
+
+::-webkit-inner-spin-button,
+::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/*
+1. Correct the odd appearance in Chrome and Safari.
+2. Correct the outline style in Safari.
+*/
+
+[type='search'] {
+  -webkit-appearance: textfield; /* 1 */
+  outline-offset: -2px; /* 2 */
+}
+
+/*
+Remove the inner padding in Chrome and Safari on macOS.
+*/
+
+::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/*
+1. Correct the inability to style clickable types in iOS and Safari.
+2. Change font properties to `inherit` in Safari.
+*/
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button; /* 1 */
+  font: inherit; /* 2 */
+}
+
+/*
+Add the correct display in Chrome and Safari.
+*/
+
+summary {
+  display: list-item;
+}
+
+/*
+Removes the default spacing and border for appropriate elements.
+*/
+
+blockquote,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+figure,
+p,
+pre {
+  margin: 0;
+}
+
+fieldset {
+  margin: 0;
+  padding: 0;
+}
+
+legend {
+  padding: 0;
+}
+
+ol,
+ul,
+menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+Prevent resizing textareas horizontally by default.
+*/
+
+textarea {
+  resize: vertical;
+}
+
+/*
+1. Reset the default placeholder opacity in Firefox. (https://github.com/tailwindlabs/tailwindcss/issues/3300)
+2. Set the default placeholder color to the user's configured gray 400 color.
+*/
+
+input::placeholder,
+textarea::placeholder {
+  opacity: 1; /* 1 */
+  color: #9ca3af; /* 2 */
+}
+
+/*
+Set the default cursor for buttons.
+*/
+
+button,
+[role="button"] {
+  cursor: pointer;
+}
+
+/*
+Make sure disabled buttons don't get the pointer cursor.
+*/
+:disabled {
+  cursor: default;
+}
+
+/*
+1. Make replaced elements `display: block` by default. (https://github.com/mozdevs/cssremedy/issues/14)
+2. Add `vertical-align: middle` to align replaced elements more sensibly by default. (https://github.com/jensimmons/cssremedy/issues/14#issuecomment-634934210)
+   This can trigger a poorly considered lint error in some tools but is included by design.
+*/
+
+img,
+svg,
+video,
+canvas,
+audio,
+iframe,
+embed,
+object {
+  display: block; /* 1 */
+  vertical-align: middle; /* 2 */
+}
+
+/*
+Constrain images and videos to the parent width and preserve their intrinsic aspect ratio. (https://github.com/mozdevs/cssremedy/issues/14)
+*/
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+    html {
+      font-family: 'Poppins'
+    }
+
+*, ::before, ::after {
+  --tw-border-spacing-x: 0;
+  --tw-border-spacing-y: 0;
+  --tw-translate-x: 0;
+  --tw-translate-y: 0;
+  --tw-rotate: 0;
+  --tw-skew-x: 0;
+  --tw-skew-y: 0;
+  --tw-scale-x: 1;
+  --tw-scale-y: 1;
+  --tw-pan-x:  ;
+  --tw-pan-y:  ;
+  --tw-pinch-zoom:  ;
+  --tw-scroll-snap-strictness: proximity;
+  --tw-ordinal:  ;
+  --tw-slashed-zero:  ;
+  --tw-numeric-figure:  ;
+  --tw-numeric-spacing:  ;
+  --tw-numeric-fraction:  ;
+  --tw-ring-inset:  ;
+  --tw-ring-offset-width: 0px;
+  --tw-ring-offset-color: #fff;
+  --tw-ring-color: rgb(59 130 246 / 0.5);
+  --tw-ring-offset-shadow: 0 0 #0000;
+  --tw-ring-shadow: 0 0 #0000;
+  --tw-shadow: 0 0 #0000;
+  --tw-shadow-colored: 0 0 #0000;
+  --tw-blur:  ;
+  --tw-brightness:  ;
+  --tw-contrast:  ;
+  --tw-grayscale:  ;
+  --tw-hue-rotate:  ;
+  --tw-invert:  ;
+  --tw-saturate:  ;
+  --tw-sepia:  ;
+  --tw-drop-shadow:  ;
+  --tw-backdrop-blur:  ;
+  --tw-backdrop-brightness:  ;
+  --tw-backdrop-contrast:  ;
+  --tw-backdrop-grayscale:  ;
+  --tw-backdrop-hue-rotate:  ;
+  --tw-backdrop-invert:  ;
+  --tw-backdrop-opacity:  ;
+  --tw-backdrop-saturate:  ;
+  --tw-backdrop-sepia:  ;
+}
+
+::backdrop {
+  --tw-border-spacing-x: 0;
+  --tw-border-spacing-y: 0;
+  --tw-translate-x: 0;
+  --tw-translate-y: 0;
+  --tw-rotate: 0;
+  --tw-skew-x: 0;
+  --tw-skew-y: 0;
+  --tw-scale-x: 1;
+  --tw-scale-y: 1;
+  --tw-pan-x:  ;
+  --tw-pan-y:  ;
+  --tw-pinch-zoom:  ;
+  --tw-scroll-snap-strictness: proximity;
+  --tw-ordinal:  ;
+  --tw-slashed-zero:  ;
+  --tw-numeric-figure:  ;
+  --tw-numeric-spacing:  ;
+  --tw-numeric-fraction:  ;
+  --tw-ring-inset:  ;
+  --tw-ring-offset-width: 0px;
+  --tw-ring-offset-color: #fff;
+  --tw-ring-color: rgb(59 130 246 / 0.5);
+  --tw-ring-offset-shadow: 0 0 #0000;
+  --tw-ring-shadow: 0 0 #0000;
+  --tw-shadow: 0 0 #0000;
+  --tw-shadow-colored: 0 0 #0000;
+  --tw-blur:  ;
+  --tw-brightness:  ;
+  --tw-contrast:  ;
+  --tw-grayscale:  ;
+  --tw-hue-rotate:  ;
+  --tw-invert:  ;
+  --tw-saturate:  ;
+  --tw-sepia:  ;
+  --tw-drop-shadow:  ;
+  --tw-backdrop-blur:  ;
+  --tw-backdrop-brightness:  ;
+  --tw-backdrop-contrast:  ;
+  --tw-backdrop-grayscale:  ;
+  --tw-backdrop-hue-rotate:  ;
+  --tw-backdrop-invert:  ;
+  --tw-backdrop-opacity:  ;
+  --tw-backdrop-saturate:  ;
+  --tw-backdrop-sepia:  ;
+}
+.fixed {
+  position: fixed;
+}
+.z-10 {
+  z-index: 10;
+}
+.my-6 {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+.my-1 {
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+.mb-10 {
+  margin-bottom: 2.5rem;
+}
+.mt-8 {
+  margin-top: 2rem;
+}
+.mt-2 {
+  margin-top: 0.5rem;
+}
+.mt-6 {
+  margin-top: 1.5rem;
+}
+.mt-10 {
+  margin-top: 2.5rem;
+}
+.ml-2 {
+  margin-left: 0.5rem;
+}
+.mr-60 {
+  margin-right: 15rem;
+}
+.mr-4 {
+  margin-right: 1rem;
+}
+.mb-4 {
+  margin-bottom: 1rem;
+}
+.mb-3 {
+  margin-bottom: 0.75rem;
+}
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+.ml-10 {
+  margin-left: 2.5rem;
+}
+.mt-20 {
+  margin-top: 5rem;
+}
+.mb-20 {
+  margin-bottom: 5rem;
+}
+.block {
+  display: block;
+}
+.flex {
+  display: flex;
+}
+.hidden {
+  display: none;
+}
+.h-screen {
+  height: 100vh;
+}
+.h-\[120px\] {
+  height: 120px;
+}
+.h-full {
+  height: 100%;
+}
+.h-11 {
+  height: 2.75rem;
+}
+.h-64 {
+  height: 16rem;
+}
+.h-14 {
+  height: 3.5rem;
+}
+.h-\[12px\] {
+  height: 12px;
+}
+.h-\[59px\] {
+  height: 59px;
+}
+.w-full {
+  width: 100%;
+}
+.w-screen {
+  width: 100vw;
+}
+.w-auto {
+  width: auto;
+}
+.w-14 {
+  width: 3.5rem;
+}
+.w-6\/12 {
+  width: 50%;
+}
+.max-w-\[1240px\] {
+  max-width: 1240px;
+}
+.cursor-pointer {
+  cursor: pointer;
+}
+.flex-col {
+  flex-direction: column;
+}
+.items-center {
+  align-items: center;
+}
+.justify-center {
+  justify-content: center;
+}
+.justify-between {
+  justify-content: space-between;
+}
+.gap-1 {
+  gap: 0.25rem;
+}
+.rounded-lg {
+  border-radius: 0.5rem;
+}
+.rounded-2xl {
+  border-radius: 1rem;
+}
+.rounded-xl {
+  border-radius: 0.75rem;
+}
+.rounded {
+  border-radius: 0.25rem;
+}
+.rounded-3xl {
+  border-radius: 1.5rem;
+}
+.border {
+  border-width: 1px;
+}
+.border-2 {
+  border-width: 2px;
+}
+.border-dashed {
+  border-style: dashed;
+}
+.border-black {
+  --tw-border-opacity: 1;
+  border-color: rgb(0 0 0 / var(--tw-border-opacity));
+}
+.border-gray-300 {
+  --tw-border-opacity: 1;
+  border-color: rgb(209 213 219 / var(--tw-border-opacity));
+}
+.bg-gray-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(229 231 235 / var(--tw-bg-opacity));
+}
+.bg-\[\#1D5257\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(29 82 87 / var(--tw-bg-opacity));
+}
+.bg-\[\#424B5A\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(66 75 90 / var(--tw-bg-opacity));
+}
+.bg-\[\#b2dfdb\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(178 223 219 / var(--tw-bg-opacity));
+}
+.bg-white {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+.bg-gray-50 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(249 250 251 / var(--tw-bg-opacity));
+}
+.bg-\[\#006970\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 105 112 / var(--tw-bg-opacity));
+}
+.bg-\[\#F4FEFF\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(244 254 255 / var(--tw-bg-opacity));
+}
+.bg-gradient-to-b {
+  background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
+}
+.from-\[\#BBC2FA\] {
+  --tw-gradient-from: #BBC2FA;
+  --tw-gradient-to: rgb(187 194 250 / 0);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+.to-white {
+  --tw-gradient-to: #fff;
+}
+.p-10 {
+  padding: 2.5rem;
+}
+.p-3 {
+  padding: 0.75rem;
+}
+.px-10 {
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+}
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.py-3 {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+.px-60 {
+  padding-left: 15rem;
+  padding-right: 15rem;
+}
+.px-8 {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+.py-9 {
+  padding-top: 2.25rem;
+  padding-bottom: 2.25rem;
+}
+.px-2 {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+.px-6 {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+.py-8 {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+.pl-96 {
+  padding-left: 24rem;
+}
+.pr-4 {
+  padding-right: 1rem;
+}
+.pl-5 {
+  padding-left: 1.25rem;
+}
+.pt-5 {
+  padding-top: 1.25rem;
+}
+.pb-6 {
+  padding-bottom: 1.5rem;
+}
+.text-center {
+  text-align: center;
+}
+.text-8xl {
+  font-size: 6rem;
+  line-height: 1;
+}
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+.text-5xl {
+  font-size: 3rem;
+  line-height: 1;
+}
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+.font-bold {
+  font-weight: 700;
+}
+.font-semibold {
+  font-weight: 600;
+}
+.text-\[\#1D5257\] {
+  --tw-text-opacity: 1;
+  color: rgb(29 82 87 / var(--tw-text-opacity));
+}
+.text-white {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+.text-\[\#308b93\] {
+  --tw-text-opacity: 1;
+  color: rgb(48 139 147 / var(--tw-text-opacity));
+}
+.text-\[\#424B5A\] {
+  --tw-text-opacity: 1;
+  color: rgb(66 75 90 / var(--tw-text-opacity));
+}
+.text-black {
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+.text-\[\#006970\] {
+  --tw-text-opacity: 1;
+  color: rgb(0 105 112 / var(--tw-text-opacity));
+}
+.underline {
+  text-decoration-line: underline;
+}
+.shadow-xl {
+  --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+.shadow-md {
+  --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+.drop-shadow-lg {
+  --tw-drop-shadow: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
+.hover\:bg-\[\#58dedb\]:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(88 222 219 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-\[\#3c8b8a\]:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(60 139 138 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-gray-100:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(243 244 246 / var(--tw-bg-opacity));
+}
+
+.hover\:text-\[\#58dedb\]:hover {
+  --tw-text-opacity: 1;
+  color: rgb(88 222 219 / var(--tw-text-opacity));
+}
+
+.focus\:border-blue-500:focus {
+  --tw-border-opacity: 1;
+  border-color: rgb(59 130 246 / var(--tw-border-opacity));
+}
+
+.focus\:bg-white:focus {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.focus\:bg-\[\#58dedb\]:focus {
+  --tw-bg-opacity: 1;
+  background-color: rgb(88 222 219 / var(--tw-bg-opacity));
+}
+
+.focus\:bg-\[\#3c8b8a\]:focus {
+  --tw-bg-opacity: 1;
+  background-color: rgb(60 139 138 / var(--tw-bg-opacity));
+}
+
+.focus\:text-\[\#58dedb\]:focus {
+  --tw-text-opacity: 1;
+  color: rgb(88 222 219 / var(--tw-text-opacity));
+}
+
+.focus\:outline-none:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+@media (prefers-color-scheme: dark) {
+
+  .dark\:border-gray-600 {
+    --tw-border-opacity: 1;
+    border-color: rgb(75 85 99 / var(--tw-border-opacity));
+  }
+
+  .dark\:bg-gray-700 {
+    --tw-bg-opacity: 1;
+    background-color: rgb(55 65 81 / var(--tw-bg-opacity));
+  }
+
+  .dark\:text-gray-400 {
+    --tw-text-opacity: 1;
+    color: rgb(156 163 175 / var(--tw-text-opacity));
+  }
+
+  .dark\:hover\:border-gray-500:hover {
+    --tw-border-opacity: 1;
+    border-color: rgb(107 114 128 / var(--tw-border-opacity));
+  }
+
+  .dark\:hover\:bg-gray-600:hover {
+    --tw-bg-opacity: 1;
+    background-color: rgb(75 85 99 / var(--tw-bg-opacity));
+  }
+}
+
+@media (min-width: 768px) {
+
+  .md\:flex {
+    display: flex;
+  }
+
+  .md\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+
+  .lg\:block {
+    display: block;
+  }
+}
+
+@media (min-width: 1280px) {
+
+  .xl\:w-1\/2 {
+    width: 50%;
+  }
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uL3NyYy9pbnB1dC5jc3MiLCI8bm8gc291cmNlPiJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTs7Q0FBYyxDQUFkOzs7Q0FBYzs7QUFBZDs7O0VBQUEsc0JBQWMsRUFBZCxNQUFjO0VBQWQsZUFBYyxFQUFkLE1BQWM7RUFBZCxtQkFBYyxFQUFkLE1BQWM7RUFBZCxxQkFBYyxFQUFkLE1BQWM7QUFBQTs7QUFBZDs7RUFBQSxnQkFBYztBQUFBOztBQUFkOzs7OztDQUFjOztBQUFkO0VBQUEsZ0JBQWMsRUFBZCxNQUFjO0VBQWQsOEJBQWMsRUFBZCxNQUFjLEVBQWQsTUFBYztFQUFkLFdBQWMsRUFBZCxNQUFjO0VBQWQsNE5BQWMsRUFBZCxNQUFjO0FBQUE7O0FBQWQ7OztDQUFjOztBQUFkO0VBQUEsU0FBYyxFQUFkLE1BQWM7RUFBZCxvQkFBYyxFQUFkLE1BQWM7QUFBQTs7QUFBZDs7OztDQUFjOztBQUFkO0VBQUEsU0FBYyxFQUFkLE1BQWM7RUFBZCxjQUFjLEVBQWQsTUFBYztFQUFkLHFCQUFjLEVBQWQsTUFBYztBQUFBOztBQUFkOztDQUFjOztBQUFkO0VBQUEsaUNBQWM7QUFBQTs7QUFBZDs7Q0FBYzs7QUFBZDs7Ozs7O0VBQUEsa0JBQWM7RUFBZCxvQkFBYztBQUFBOztBQUFkOztDQUFjOztBQUFkO0VBQUEsY0FBYztFQUFkLHdCQUFjO0FBQUE7O0FBQWQ7O0NBQWM7O0FBQWQ7O0VBQUEsbUJBQWM7QUFBQTs7QUFBZDs7O0NBQWM7O0FBQWQ7Ozs7RUFBQSwrR0FBYyxFQUFkLE1BQWM7RUFBZCxjQUFjLEVBQWQsTUFBYztBQUFBOztBQUFkOztDQUFjOztBQUFkO0VBQUEsY0FBYztBQUFBOztBQUFkOztDQUFjOztBQUFkOztFQUFBLGNBQWM7RUFBZCxjQUFjO0VBQWQsa0JBQWM7RUFBZCx3QkFBYztBQUFBOztBQUFkO0VBQUEsZUFBYztBQUFBOztBQUFkO0VBQUEsV0FBYztBQUFBOztBQUFkOzs7O0NBQWM7O0FBQWQ7RUFBQSxjQUFjLEVBQWQsTUFBYztFQUFkLHFCQUFjLEVBQWQsTUFBYztFQUFkLHlCQUFjLEVBQWQsTUFBYztBQUFBOztBQUFkOzs7O0NBQWM7O0FBQWQ7Ozs7O0VBQUEsb0JBQWMsRUFBZCxNQUFjO0VBQWQsZUFBYyxFQUFkLE1BQWM7RUFBZCxvQkFBYyxFQUFkLE1BQWM7RUFBZCxvQkFBYyxFQUFkLE1BQWM7RUFBZCxjQUFjLEVBQWQsTUFBYztFQUFkLFNBQWMsRUFBZCxNQUFjO0VBQWQsVUFBYyxFQUFkLE1BQWM7QUFBQTs7QUFBZDs7Q0FBYzs7QUFBZDs7RUFBQSxvQkFBYztBQUFBOztBQUFkOzs7Q0FBYzs7QUFBZDs7OztFQUFBLDBCQUFjLEVBQWQsTUFBYztFQUFkLDZCQUFjLEVBQWQsTUFBYztFQUFkLHNCQUFjLEVBQWQsTUFBYztBQUFBOztBQUFkOztDQUFjOztBQUFkO0VBQUEsYUFBYztBQUFBOztBQUFkOztDQUFjOztBQUFkO0VBQUEsZ0JBQWM7QUFBQTs7QUFBZDs7Q0FBYzs7QUFBZDtFQUFBLHdCQUFjO0FBQUE7O0FBQWQ7O0NBQWM7O0FBQWQ7O0VBQUEsWUFBYztBQUFBOztBQUFkOzs7Q0FBYzs7QUFBZDtFQUFBLDZCQUFjLEVBQWQsTUFBYztFQUFkLG9CQUFjLEVBQWQsTUFBYztBQUFBOztBQUFkOztDQUFjOztBQUFkO0VBQUEsd0JBQWM7QUFBQTs7QUFBZDs7O0NBQWM7O0FBQWQ7RUFBQSwwQkFBYyxFQUFkLE1BQWM7RUFBZCxhQUFjLEVBQWQsTUFBYztBQUFBOztBQUFkOztDQUFjOztBQUFkO0VBQUEsa0JBQWM7QUFBQTs7QUFBZDs7Q0FBYzs7QUFBZDs7Ozs7Ozs7Ozs7OztFQUFBLFNBQWM7QUFBQTs7QUFBZDtFQUFBLFNBQWM7RUFBZCxVQUFjO0FBQUE7O0FBQWQ7RUFBQSxVQUFjO0FBQUE7O0FBQWQ7OztFQUFBLGdCQUFjO0VBQWQsU0FBYztFQUFkLFVBQWM7QUFBQTs7QUFBZDs7Q0FBYzs7QUFBZDtFQUFBLGdCQUFjO0FBQUE7O0FBQWQ7OztDQUFjOztBQUFkOztFQUFBLFVBQWMsRUFB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QjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUEsc0JBQW1CO0VBQW5CO0FBQW1CO0FBQW5CO0VBQUEsc0JBQW1CO0VBQW5CO0FBQW1CO0FBQW5CO0VBQUEsa0JBQW1CO0VBQW5CO0FBQW1CO0FBQW5CO0VBQUEsa0JBQW1CO0VBQW5CO0FBQW1CO0FBQW5CO0VBQUEsa0JBQW1CO0VBQW5CO0FBQW1CO0FBQW5CO0VBQUEsa0JBQW1CO0VBQW5CO0FBQW1CO0FBQW5CO0VBQUEsa0JBQW1CO0VBQW5CO0FBQW1CO0FBQW5CO0VBQUEsa0JBQW1CO0VBQW5CO0FBQW1CO0FBQW5CO0VBQUEsa0JBQW1CO0VBQW5CO0FBQW1CO0FBQW5CO0VBQUEsa0JBQW1CO0VBQW5CO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQSwyQkFBbUI7RUFBbkIsc0NBQW1CO0VBQW5CO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUEsb0JBQW1CO0VBQW5CO0FBQW1CO0FBQW5CO0VBQUEsa0JBQW1CO0VBQW5CO0FBQW1CO0FBQW5CO0VBQUEsb0JBQW1CO0VBQW5CO0FBQW1CO0FBQW5CO0VBQUEsbUJBQW1CO0VBQW5CO0FBQW1CO0FBQW5CO0VBQUEsa0JBQW1CO0VBQW5CO0FBQW1CO0FBQW5CO0VBQUEsb0JBQW1CO0VBQW5CO0FBQW1CO0FBQW5CO0VBQUEsb0JBQW1CO0VBQW5CO0FBQW1CO0FBQW5CO0VBQUEsb0JBQW1CO0VBQW5CO0FBQW1CO0FBQW5CO0VBQUEsaUJBQW1CO0VBQW5CO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUEsZUFBbUI7RUFBbkI7QUFBbUI7QUFBbkI7RUFBQSxtQkFBbUI7RUFBbkI7QUFBbUI7QUFBbkI7RUFBQSxpQkFBbUI7RUFBbkI7QUFBbUI7QUFBbkI7RUFBQSxlQUFtQjtFQUFuQjtBQUFtQjtBQUFuQjtFQUFBLGtCQUFtQjtFQUFuQjtBQUFtQjtBQUFuQjtFQUFBLG1CQUFtQjtFQUFuQjtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQSxvQkFBbUI7RUFBbkI7QUFBbUI7QUFBbkI7RUFBQSxvQkFBbUI7RUFBbkI7QUFBbUI7QUFBbkI7RUFBQSxvQkFBbUI7RUFBbkI7QUFBbUI7QUFBbkI7RUFBQSxvQkFBbUI7RUFBbkI7QUFBbUI7QUFBbkI7RUFBQSxvQkFBbUI7RUFBbkI7QUFBbUI7QUFBbkI7RUFBQSxvQkFBbUI7RUFBbkI7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBLGdGQUFtQjtFQUFuQixvR0FBbUI7RUFBbkI7QUFBbUI7QUFBbkI7RUFBQSw2RUFBbUI7RUFBbkIsaUdBQW1CO0VBQW5CO0FBQW1CO0FBQW5CO0VBQUEsbUdBQW1CO0VBQW5CO0FBQW1COztBQUZuQjtFQUFBLG1CQ0FBO0VEQUE7Q0NBQTs7QURBQTtFQUFBLG1CQ0FBO0VEQUE7Q0NBQTs7QURBQTtFQUFBLG1CQ0FBO0VEQUE7Q0NBQTs7QURBQTtFQUFBLHFCQ0FBO0VEQUE7Q0NBQTs7QURBQTtFQUFBLHVCQ0FBO0VEQUE7Q0NBQTs7QURBQTtFQUFBLG1CQ0FBO0VEQUE7Q0NBQTs7QURBQTtFQUFBLG1CQ0FBO0VEQUE7Q0NBQTs7QURBQTtFQUFBLG1CQ0FBO0VEQUE7Q0NBQTs7QURBQTtFQUFBLHFCQ0FBO0VEQUE7Q0NBQTs7QURBQTtFQUFBLCtCQ0FBO0VEQUE7Q0NBQTs7QURBQTs7RUFBQTtJQUFBLHVCQ0FBO0lEQUE7R0NBQTs7RURBQTtJQUFBLG1CQ0FBO0lEQUE7R0NBQTs7RURBQTtJQUFBLHFCQ0FBO0lEQUE7R0NBQTs7RURBQTtJQUFBLHVCQ0FBO0lEQUE7R0NBQTs7RURBQTtJQUFBLG1CQ0FBO0lEQUE7R0NBQTtDQUFBOztBREFBOztFQUFBO0lBQUE7R0NBQTs7RURBQTtJQUFBO0dDQUE7Q0FBQTs7QURBQTs7RUFBQTtJQUFBO0dDQUE7Q0FBQTs7QURBQTs7RUFBQTtJQUFBO0dDQUE7Q0FBQSIsInNvdXJjZXNDb250ZW50IjpbIkB0YWlsd2luZCBiYXNlO1xuQHRhaWx3aW5kIGNvbXBvbmVudHM7XG5AdGFpbHdpbmQgdXRpbGl0aWVzO1xuXG5AbGF5ZXIgYmFzZSB7XG4gICAgaHRtbCB7XG4gICAgICBmb250LWZhbWlseTogJ1BvcHBpbnMnXG4gICAgfVxuICB9IixudWxsXSwic291cmNlUm9vdCI6IiJ9 */</style></head>
+  <body data-new-gr-c-s-check-loaded="14.1078.0" data-gr-ext-installed="">
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"><div><div><div class="App bg-gradient-to-b from-[#BBC2FA] to-white"><div class="w-screen h-[120px] z-10 fixed drop-shadow-lg "><div class="px-60 flex justify-between items-center w-full h-full"><div class="flex items-center pl-96 text-[#424B5A]"><a href="http://localhost:3000/"><img class="hidden lg:block h-11 w-auto" src="data:image/png;base64,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" alt="Workflow"></a></div><div class="hidden md:flex pr-4 mr-60"><a href="http://localhost:3000/ticket"><button class="px-8 mr-4 py-3 bg-[#424B5A] text-2xl text-white rounded-2xl hover:bg-[#3c8b8a] focus:bg-[#3c8b8a]">Contact Sales</button></a><a href="http://localhost:3000/chat"><button class="px-8 py-3 bg-[#b2dfdb] text-2xl mr-4 text-black rounded-2xl hover:bg-[#58dedb] focus:bg-[#58dedb]">Open Chat</button></a><a href="http://localhost:3000/"><button class="flex justify-center hover:text-[#58dedb] focus:text-[#58dedb]">Log Out</button></a></div></div></div></div><br><br><br><br><br><div><div class="w-screen h-[59px] z-10 fixed drop-shadow-lg bg-[#F4FEFF]"><div class="px-60 flex justify-between items-center w-full h-full"><div class="flex items-center pl-96 text-bold text-xl text-[#424B5A]"><a href="http://localhost:3000/home">Home</a></div><div class="hidden md:flex pr-4 mr-60"></div></div></div></div></div></div></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  
+
+</body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>

@@ -2,6 +2,7 @@ import React from 'react'
 import { ChatEngine } from 'react-chat-engine';
 import { useEffect } from 'react';
 import { UserAuth } from '../context/AuthContext';
+import Navbar from './Navbar';
 import { Link, useNavigate } from 'react-router-dom'
 
 const Chat = () => {
@@ -25,14 +26,15 @@ const Chat = () => {
     }, [user])
 
   return (
+    <div>
+    <Navbar/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
     <div className='chats-page'>
-          <nav>
-              Pilveo
-              <p>Welcome, {user?.displayName}</p>
-              {user?.displayName ?<button onClick={handleLogOut}>Log Out</button> :  navigate('/')}
-          </nav>
          
-          <ChatEngine
+          <ChatEngine 
               height="calc(100vh - 66px)"
               projectID="d778b043-7572-4517-b02b-6e257c6c526d"
               userName="."
@@ -40,6 +42,7 @@ const Chat = () => {
           
           />
           
+    </div>
     </div>
   )
 }
