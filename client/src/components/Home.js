@@ -2,6 +2,8 @@ import React from 'react'
 import Navbar from './Navbar'
 import add from './images/add.png'
 import check from './images/check.png'
+import home1 from './images/home1.png'
+import home from './images/home.png'
 
 export default function Home() {
   return (
@@ -35,7 +37,8 @@ export default function Home() {
             </div>
           </a>
         </div>
-        <img className='mt-20 mx-44 w-[720px]' src="https://www.plivo.com/assets/dist/images/new-home/hero-unit.svg"/>
+        <img className='ml-56 mt-16' src={home1}/>
+        <img className='w-[3000px]' src={home}/>
 
     </div>
   )
