@@ -4,6 +4,8 @@ import add from './images/add.png'
 import check from './images/check.png'
 import home1 from './images/home1.png'
 import home from './images/home.png'
+import SupportWindow from './SupportWindow'
+import Agent from './Agent'
 
 export default function Home() {
   return (
@@ -14,10 +16,10 @@ export default function Home() {
         <br/>
         <br/>
         <br/>
-        <div class='px-10 ml-36 font-[400] text-[42px]'>
+        <div class='mt-16 ml-36 font-[400] text-center text-[56px]'>
           How can we help you today?
         </div>
-        <div class='flex mt-6 px-10 ml-36  text-[#1D5257]'>
+        <div class='flex mt-10 px-10 ml-36 text-center justify-center text-[#1D5257]'>
             <img 
                 class='w-10'
                 src={add}
@@ -40,6 +42,7 @@ export default function Home() {
         <img className='ml-56 mt-16' src={home1}/>
         <img className='w-[3000px]' src={home}/>
 
+        
     </div>
   )
 }

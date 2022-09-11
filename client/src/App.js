@@ -22,7 +22,6 @@ function App() {
       { path: '/new-ticket', element: <Protected><TicketForm /></Protected> },
       { path: '/home', element: <Protected><Home /></Protected> },
       { path: '/chat', element: <Protected> <Chat /> </Protected> },
-      { path: '/support', element: <AuthContextProvider><Protected> <SupportWindow /> </Protected></AuthContextProvider> },
       { path: '/ticket-dashboard', element: <Protected> <CustomerTickets /> </Protected> },
      
     ])

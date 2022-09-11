@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import MDSpinner from "react-md-spinner";
-const agentUID = process.env.REACT_APP_AGENT_ID;
-const appID = process.env.REACT_APP_ID;
-const region = process.env.REACT_APP_REGION;
-const AUTH_KEY = process.env.REACT_APP_AUTH_KEY;
-const wid = process.env.REACT_APP_W2;
+
+
+const agentUID = "agent123";
+const appID = "2177267a06836b61";
+const region = 'us';
+const AUTH_KEY = '0f525fc6b7b4c13d37595a4f6078156808ecb3d1';
+const wid = "102eca63-88d9-4cfa-bafa-dab33f141ae1";
 
 const Agent = () => {
   const [loading, setLoading] = useState(true);
