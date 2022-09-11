@@ -12,29 +12,31 @@ export default function Home() {
         <br/>
         <br/>
         <br/>
-        <div class='px-10 ml-36 font-[400] text-[28px]'>
+        <div class='px-10 ml-36 font-[400] text-[42px]'>
           How can we help you today?
         </div>
-        <div class='flex mt-4 px-10 ml-36  text-[#1D5257]'>
+        <div class='flex mt-6 px-10 ml-36  text-[#1D5257]'>
             <img 
-                class='w-6'
+                class='w-10'
                 src={add}
             />
           <a href='new-ticket'>
-            <div className='text-[16px] hover:font-[700] font-[500] ml-4'>
+            <div className='text-[28px] hover:font-[700] font-[500] ml-4'>
               New Support Ticket
             </div>
           </a>
             <img 
-                class='ml-10 w-6'
+                class='ml-10 w-10'
                 src={check}
             />
           <a href='ticket-dashboard'>
-            <div className='text-[16px] hover:font-[700] font-[500] ml-4'>
+            <div className='text-[28px] hover:font-[700] font-[500] ml-4'>
               Check Ticket Status
             </div>
           </a>
         </div>
+        <img className='mt-20 mx-44 w-[720px]' src="https://www.plivo.com/assets/dist/images/new-home/hero-unit.svg"/>
+
     </div>
   )
 }

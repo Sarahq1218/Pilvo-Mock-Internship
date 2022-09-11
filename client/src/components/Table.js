@@ -1,34 +1,37 @@
-import { React, useState, useEffect } from 'react'
-import { db } from '../firebase'
-import { collection, getDoc, getDocs } from 'firebase/firestore'
 
-export default function Table() {
+import { onSnapshot, collection } from "firebase/firestore";
+import { useEffect, useState } from "react";
+import { db } from "../firebase";
+import Cards from "./Cards";
+import { useNavigate } from 'react-router-dom'
+
+
+export default function App() {
+  const [tickets, setTickets] = useState([{ name: "Loading...", id: "initial" }]);
   const [searchTerm, setSearchTerm] = useState('')
-  const [tickets, setTickets] = useState([])
+  const navigate = useNavigate()
 
-  const colRef = collection(db, "tickets")
-  getDocs(colRef)
-  .then((snapshot) => {
-    let tickets = []
-    snapshot.docs.forEach((doc) => { 
-      tickets.push({ ...doc.data(), id: doc.id })
-    })
-    console.log(tickets)
-  })
-  .catch(err => { 
-    console.log(err.message)
-  })
+
+  useEffect(
+    () =>
+      onSnapshot(collection(db, "tickets"), (snapshot) =>
+        setTickets(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id.substring(0,5)})))
+      ),
+    []
+  );
+
+  const handleClick = () => {
+    navigate("/")
+  }
 
   return (
     <div className=''>
       {/* Search */}
-      <div className='flex mx-auto w-full px-10'>
-        <div className='flex justify-between items-center w-full h-full'>
-          <div>
-            <h1 className='text-3xl text-[#424B5A] flex items-center justify-center '>Tickets</h1>
-          </div>
-          <div className='flex border-2 rounded-3xl text-[#424B5A]'>
-            <button className='flex items-center justify-center px-4 border-r '>
+      <div className='flex mx-auto w-full px-3'>
+        <div className='ml-96 flex justify-between items-center w-full h-full'>
+          <Cards/>
+          <div className='mt-32 mr-80 flex h-16 border-2 w-96 ml-10 rounded-3xl text-[#424B5A] shadow-lg'>
+            <button className=' items-center justify-right px-4 border-r'>
               <svg
                 className='w-6 h-6 text-gray-600'
                 fill='currentColor'
@@ -40,7 +43,7 @@ export default function Table() {
             </button>
             <input
               type='text'
-              className='px-4 py-2 w-80 rounded-3xl'
+              className='px-4 text-[24px] py-2 w-72 rounded-3xl '
               placeholder='Search...'
               onChange={event => setSearchTerm(event.target.value)}
             />
@@ -48,41 +51,31 @@ export default function Table() {
         </div>
       </div>
 
-      {/* Applications */}
-      <div className='mt-5'>
-        <div className='flex justify-center align-center border-b border-gray-200'>
-          <table className='table-auto w-screen'>
-            <thead className='bg-gray-50'>
-              <tr>
-                <th className='px-6 py-2 text-[20px] text-[#1D3557]'>ID</th>
-                <th className='px-6 py-2 text-[20px] text-[#1D3557]'>Client</th>
-                <th className='px-6 py-2 text-[20px] text-[#1D3557]'>Subject</th>
-                <th className='px-6 py-2 text-[20px] text-[#1D3557]'>Assigned Agent</th>
-                <th className='px-6 py-2 text-[20px] text-[#1D3557]'>Priority</th>
-                <th className='px-6 py-2 text-[20px] text-[#1D3557]'>Status</th>
-                <th className='px-6 py-2 text-[20px] text-[#1D3557]'>Created</th>
-                <th className='px-6 py-2 text-[20px] text-[#1D3557]'>Due</th>
+
+
+      <div className='mt-14 justify-center flex'>
+        
+        <div className='border-b border-gray-200 '>
+          <table className=' text-3xl mt-4 divide-y px-10'>
+            <thead className='h-14 bg-[#eafbf9] text-[#1D5257]'>
+              <tr className="shadow-2xl h-14">
+                <th className='px-6 py-2 text-2xl underline'>ID</th>
+                <th className='px-6 py-2 text-2xl underline'>Client</th>
+                <th className='px-6 py-2 text-2xl underline'>Request Type</th>
+                <th className='px-6 py-2 text-2xl underline'>Subject</th>
+                <th className='px-6 py-2 text-2xl underline'>Description</th>
               </tr>
             </thead>
 
-            <tbody className='bg-white'>
+            <tbody className='drop-shadow-xl bg-white'>
 
-              {tickets.filter(val => {
-                    if (searchTerm === "") {
-                      return val
-                    } else if (val.content.includes(searchTerm)) {
-                      return val
-                    }
-                  }).map(ticket => (
-                <tr className=''>
-                  <td className='px-6 py-4 text-sm text-gray-500'>
-                    {ticket._id.substring(1, 5)}
-                  </td>
-                  <td className='px-6 py-4'>{ticket.client}</td>
-                  <td className='px-6 py-4'>{ticket.subject}</td>
-                  <td className='px-6 py-4'>{ticket.request}</td>
-                  <td className='px-6 py-4'>{ticket.description}</td>
-                  <td className='px-6 py-4'>🔗</td>
+              {tickets.map(ticket => (
+                <tr className='text-center h-20 divide-y-2 border-[#ecf2f2]'>
+                  <td onClick={(handleClick)} className='divide-y-2 px-6 py-4 bg-[#ecf2f2] cursor-pointer hover:font-semibold'>#{ticket.id}</td>
+                  <td className='px-6 py-4 bg-[#d3f2ef] max-w-xl max-h-1 '>{ticket.client}</td>
+                  <td className='px-6 py-4 bg-[#ecf2f2] max-w-xl max-h-1 '>{ticket.request}</td>
+                  <td className='px-6 py-4 bg-[#d3f2ef] max-w-xl max-h-1 '>{ticket.subject}</td>
+                  <td className='px-6 py-4 bg-[#ecf2f2] max-w-xl max-h-3 text-ellipses'>{ticket.description}</td>
                 </tr>
               ))}
 
@@ -91,5 +84,50 @@ export default function Table() {
         </div>
       </div>
     </div>
-  )
+  );
 }
+
+
+
+
+// import { db } from "../firebase";
+// import {ref, onValue} from 'firebase/firestore'
+// import'bootstrap/dist/css/bootstrap.min.css'
+
+// export default class Table extends React.Component{
+//   constructor(){
+//     super();
+//     this.state = {
+//       tableData: []
+//     }
+//   }
+
+//   render(){
+//     return(
+//       <Table>
+//         <thead>
+//           <tr>
+//             <th>#</th>
+//             <th>Client</th>
+//             <th>Request Type</th>
+//             <th>Subject</th>
+//             <th>Description</th>
+//           </tr>
+//         </thead>
+
+//         <tbody>
+//           {this.state.tableData.map((rowdata, index)=>{
+//             <tr>
+//               <td>{index}</td>
+//               <td>{row.key}</td>
+//               <td>{row.data.client}</td>
+//               <td>{row.data.request}</td>
+//               <td>{row.data.subject}</td>
+//               <td>{row.data.description}</td>
+//             </tr>
+//           })}
+//         </tbody>
+//       </Table>
+//     )
+//   }
+// }

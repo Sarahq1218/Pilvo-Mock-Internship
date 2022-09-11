@@ -1,10 +1,14 @@
 import { React, useEffect } from 'react'
-import { useState } from 'react'
+import { useState} from 'react'
 import Navbar from './Navbar'
 import { db } from '../firebase'
 import { addDoc, collection } from 'firebase/firestore'
+import DropFileInput from "./DragDrop"
+import emailjs from '@emailjs/browser'
+import { UserAuth } from '../context/AuthContext'
 
 const TicketForm = () => {
+      const { user } = UserAuth()
       const [client, setClient] = useState("");
       const [subject, setSubject] = useState("");
       const [request, setRequest] = useState("");
@@ -15,25 +19,51 @@ const TicketForm = () => {
 
       const handleSubmit = (e) => {
         e.preventDefault();
-        setLoader(true);
-  
-        const collectionRef = collection(db, "tickets");
-        const payload = {
-          client: client,
-          subject: subject,
-          request: request,
-          description: description,
+        const ready = true;
+        if(client === ""){
+          alert("Missing name! Please enter your name")
+          ready = false;
         }
-         addDoc(collectionRef, payload);
-         setLoader(false);
-         alert("Your message has been submitted👍");
-         
-        setClient("");
-        setSubject("");
-        setRequest("");
-        setDescription("");
-        setFile(null);
-      };
+        if(subject === ""){
+          alert("Missing subject! Please enter a subject title")
+          ready = false;
+        }
+        if(request === "-- Select Request Type --"){
+          alert("Missing request type! Please specify the type of ticket you are submitting")
+          ready = false;
+        }
+
+        if(ready){
+          const collectionRef = collection(db, "tickets");
+          const payload = {
+            client: client,
+            subject: subject,
+            request: request,
+            description: description,
+            file:file,
+          }
+          addDoc(collectionRef, payload);
+          emailjs.send("service_xtv7lai","template_0a0i5oc",{
+            client: client,
+            agent: user.displayName,
+            user_email: user.email,
+            subject: subject,
+            request: request,
+            description: description,
+            }, '20oNdvSlH_5JGDAD-');          
+            alert("Your message has been submitted👍");
+          
+          setClient("");
+          setSubject("");
+          setRequest("");
+          setDescription("");
+          setFile(null);
+      }};
+
+      const handleFile = event => {
+        const file = event.target.files[0]
+        setFile(file)
+      }
 
     return (
       <div class=''>
@@ -49,7 +79,6 @@ const TicketForm = () => {
         <div className='py-9 md:grid-cols-3 gap-1 px-2 text-center'>
           <div className='border p-10 rounded-xl shadow-xl'>
             <form onSubmit={e => handleSubmit(e)}>
-              {/* <div className='bg-white px-6 py-8 rounded shadow-md text-black w-full'> */}
               <input
                 required
                 type='text'
@@ -58,14 +87,22 @@ const TicketForm = () => {
                 id='client'
                 onChange={(e) => setClient(e.target.value)}
               />
-              <input
-                required
-                type='text'
-                className='block border border-grey-light w-full p-3 mb-4 text-xl rounded-3xl pl-5'
-                id='request'
-                placeholder='Request'
-                onChange={(e) => setRequest(e.target.value)}
-              />
+
+              <select class='block border border-grey-light w-full p-3 mb-4 text-xl rounded-3xl pl-5'
+              onChange={e => setRequest(e.target.value)}
+              required
+              >
+                <option>-- Select Request Type --</option>
+                <option>Returns / Exchange</option>
+                <option>Delivery Status</option>
+                <option>Payment Issue</option>
+                <option>Product Issue</option>
+                <option>Order Cancellation</option>
+                <option>Missing / Lost Order</option>                
+                <option>General Inquiry</option>
+                <option>Other</option>
+              </select>
+              
               <input
                 required
                 type='text'
@@ -85,13 +122,10 @@ const TicketForm = () => {
               </textarea>
 
               <div class="flex justify-center items-center w-full">
-    <label for="dropzone-file" class="flex flex-col justify-center items-center w-full h-40 bg-gray-50 rounded-lg border-2 border-gray-300 border-dashed cursor-pointer dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
-        <div class="flex flex-col justify-center items-center pt-5 pb-6">
-            <svg class="mb-3 w-14 h-10 text-[#006970]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
-            <p class="mb-2 text-xl text-[#006970] text- dark:text-gray-400">+ Attach a file</p>
-        </div>
-        <input id="dropzone-file" type="file" class="hidden" />
-    </label>
+        <DropFileInput id="dropzone-file" type="file" class="hidden"
+          onFileChange={e => handleFile(e)}
+          setFile={setFile}
+          handleFile={handleFile} />
 </div> 
 
 
