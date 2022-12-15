@@ -5,7 +5,7 @@ import resolved from "./images/resolved.png"
  
 const Cards = props =>{
     return(
-        <div className="flex mt-10 mr-10">
+        <div className="flex mt-10 mr-10 ml-56">
             <div className="flex h-40 justify-center shadow-lg align-center rounded-3xl px-8 border-2">
                 <img classname="mt-4" src={tickets}/>
             </div>
